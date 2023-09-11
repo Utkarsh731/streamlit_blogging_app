@@ -1,19 +1,26 @@
 import streamlit as st
 
-# set the page config
-st.set_page_config(page_title="Ink and Pixels: Crafting My Digital Sanctuary", page_icon="🤓", layout="wide",
-                   initial_sidebar_state="expanded",
-                   menu_items={'Get Help': 'https://www.linkedin.com/in/utkarsh-shukla-1520a8255/',
-                               'Report a bug': "https://www.utkarshshukla.com/",
-                               'About': "Tech wizard and innovation enthusiast 💻 Product Owner at NerdyBio and Full Stack Developer at StatusNeo. With 120+ thought-provoking blogs published on cutting-edge technologies, my expertise in System and Database Designing is second to none. I bring proficiency in Python with a strong grip on frameworks such as Flask and Django, and databases including MongoDB, RDS, and Redshift. And, let's not forget my work with Java and SpringBoot, which led to the development of a low code no code platform for IIoT applications. Award-winning professional 🏆 Recognized with the Student of the Semester Award, Best Blogger Award, and Immense Contribution Award from various organizations and universities, I am constantly pushing the limits and delivering exceptional results. Join me in my journey to revolutionize the tech world! 🚀"})
+# Set the page configuration using st.set_page_config()
+st.set_page_config(
+    page_title="Ink and Pixels: Crafting My Digital Sanctuary",  # Page title
+    page_icon="🤓",  # Favicon (icon displayed in the browser tab)
+    layout="wide",  # Page layout
+    initial_sidebar_state="expanded",  # Initial sidebar state
+    menu_items={
+        'Get Help': 'https://www.linkedin.com/in/utkarsh-shukla-1520a8255/',
+        'Report a bug': "https://www.utkarshshukla.com/",
+        'About': "Tech wizard and innovation enthusiast 💻 ... Join me in my journey to revolutionize the tech world! 🚀"
+    }  # Menu items
+)
 
-# set the header
+# Set the header section of the app
 with st.container():
-    st.title("Ink and Pixels: Crafting My Digital Sanctuary")
+    st.title("Ink and Pixels: Crafting My Digital Sanctuary")  # Title
     st.write(
         "I am [Utkarsh Shukla](https://www.utkarshshukla.com/), an explorer of life, a curious learner, and an evangelist of my passions. My multiple hats include a [poet](https://www.utkarshshukla.com/poetry), [photographer](https://www.pexels.com/@utkarsh-shukla-204757820/), magician, consultant, numismatist, and of course, a software engineer. I am a student of life who firmly believes in continuous learning and the phrase, 'Never Rest, Never Rust.'")
     st.write("---")
 
+# Define a list of blogs
 blogs = [{"title": "Mastering Error Handling and Debugging in Python: A Comprehensive Guide with Examples",
     "image_url": "https://images.pexels.com/photos/17574687/pexels-photo-17574687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     "description": "Error handling and debugging are essential skills for any Python programmer. In this comprehensive guide, we will explore the world of error handling and debugging in Python, equipping you with the knowledge and tools to effectively identify, diagnose, and resolve issues in your code. Whether you’re a beginner or an experienced developer, mastering these techniques will help you write more robust and reliable Python applications.",
@@ -37,43 +44,42 @@ blogs = [{"title": "Mastering Error Handling and Debugging in Python: A Comprehe
 
 ]
 
-# Page title
+# Page title for the trending blogs
 st.title("Trending Blogs")
 
 # Loop through the list of blogs and display them
 for blog in blogs:
-    st.header(blog['title'])
-    st.write("##")
+    st.header(blog['title'])  # Display the blog title as a header
+    st.write("##")  # Add a horizontal line
     blog_url = blog['blog_url']
     image_url = blog['image_url']
     description = blog['description']
+
+    # Create columns for images and text
     image_column, text_column = st.columns((1, 2))
+
+    # Display the blog image as a hyperlink with a background cover effect
     with image_column:
-        # st.markdown(f"<a href='{blog['blog_url']}' target='_blank'><img src='{blog['image_url']} alt='Blog Image' width='200'></a>",unsafe_allow_html=True)
-        # Display the image as a hyperlink with a background cover effect
-        # Display the image as a hyperlink with a background cover effect
         st.markdown(
             f"<a href='{blog_url}' target='_blank' style='display: block; width: 400px; height: 200px; background-image: url({image_url}); background-size: cover;'></a>",
             unsafe_allow_html=True)
+
+    # Set the line height for the text
+    line_height = "3"  # Adjust this value as needed
+
+    # Display the blog description as a clickable link with custom line height
     with text_column:
-        # Set the line height for the text
-        line_height = "3"  # Adjust this value as needed
-
-        # Display the text with a clickable link and custom line height
         st.markdown(f"<a href='{blog_url}' target='_blank' style='line-height: {line_height};'>{description}</a>",
-            unsafe_allow_html=True)
-    st.write("---")
+                    unsafe_allow_html=True)
 
-# Define your information
+    st.write("---")  # Add a horizontal line after each blog entry
+
+# Define your information for the footer
 name = "Utkarsh Shukla"
-bio = "An explorer of life, a curious learner, and an evangelist of my passions. My multiple hats include a poet, photographer, magician, consultant, numismatist, and of course, a software engineer. I am a student of life who firmly believes in continuous learning and the phrase, 'Never Rest, Never Rust.'"
 
-# Create a footer section
+# Create a footer section with links and copyright information
 st.markdown(f"""
-    {bio}
-
     [LinkedIn](https://www.linkedin.com/in/your-profile)
     [GitHub](https://github.com/your-profile)
-
     &copy; {name} - {2023}
     """, unsafe_allow_html=True)
