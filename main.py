@@ -79,7 +79,7 @@ name = "Utkarsh Shukla"
 
 # Create a footer section with links and copyright information
 st.markdown(f"""
-    [LinkedIn](https://www.linkedin.com/in/your-profile)
-    [GitHub](https://github.com/your-profile)
+    [LinkedIn](https://www.linkedin.com/in/utkarsh-v-shukla/)
+    [GitHub](https://github.com/Utkarsh731)
     &copy; {name} - {2023}
     """, unsafe_allow_html=True)
